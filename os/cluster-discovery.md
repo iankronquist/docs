@@ -87,7 +87,7 @@ Another common problem with cluster discovery is attempting to boot a new cluste
 
 If you provide a stale discovery URL, the new machines will attempt to connect to each of the old peer addresses, which will fail since they don't exist, and the bootstrapping process will fail.
 
-If you're thinking, why can't the new machines just form a new cluster if they're all down. There's a really great reason for this &mdash; if an etcd peer was in a network partition, it would look exactly like the "full-down" situation and starting a new cluster would form a split-brain. Since etcd will never be able to determine whether a token has been reused or not, it must assume the worst and abort the cluster discovery.
+If you're thinking, "Why can't the new machines just form a new cluster if they're all down?" there's a really great reason for this &mdash; if an etcd peer was in a network partition, it would look exactly like the "full-down" situation and starting a new cluster would form a split-brain. Since etcd will never be able to determine whether a token has been reused or not, it must assume the worst and abort the cluster discovery.
 
 If you're running into problems with your discovery URL, there are a few sources of information that can help you see what's going on. First, you can open the URL in a browser to see what information etcd is using to bootstrap itself:
 
